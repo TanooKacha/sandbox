@@ -7,21 +7,11 @@ RUN apk update \
     bash \
     make
 
-RUN adduser \
-    --shell /bin/bash \
-    --home /home/vagrant \
-    --disabled-password \
-    vagrant
+WORKDIR /finalend
 
-WORKDIR /vagrant
-
-RUN chown -hR vagrant /vagrant
-
-ENV HOME=/vagrant
+ENV HOME=/finalend
 
 RUN npm install -g gulp-cli @nestjs/cli
-
-USER vagrant
 
 EXPOSE 80 8080 3000
 

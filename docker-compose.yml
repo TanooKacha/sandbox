@@ -5,7 +5,8 @@ services:
         build:
             context: ./dockerfiles/nodejs/
             dockerfile: Dockerfile
-        image: fanneioz/sandbox/nodejs:latest
+        image: tman/sandbox/nodejs:latest
+        container_name: nodejs
         ports: 
             - 3000:3000
             - 30080:80
@@ -13,12 +14,12 @@ services:
         environment: 
             - NODE_ENV=development
         volumes: 
-            - .:/vagrant
+            - .:/finalend
     postgres:
         build:
             context: ./dockerfiles/postgresql/
             dockerfile: Dockerfile
-        image: fanneioz/sandbox/postgres:latest
+        image: tman/sandbox/postgres:latest
         links:
             - node            
     
