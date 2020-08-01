@@ -19,6 +19,8 @@ export class ProductController {
     @HttpCode(200)
     @Header('Content-Type','application/json')
     async addProduct(@Body() req: {name: string}) {
+        console.log(req)
+        
         return this.productService.createProduct(req.name);
     }
 }
