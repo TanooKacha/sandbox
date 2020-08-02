@@ -6,11 +6,21 @@ services:
             context: ./dockerfiles/nodejs/
             dockerfile: Dockerfile
         image: tman/sandbox/nodejs:latest
-        container_name: nodejs
+        container_name: node01
         ports: 
             - 3000:3000
-           # - 30080:80
-           # - 38080:8080
+        environment: 
+            - NODE_ENV=development
+        volumes: 
+            - .:/finalend  
+    node1:
+        build:
+            context: ./dockerfiles/nodejs/
+            dockerfile: Dockerfile
+        image: tman/sandbox/nodejs:latest
+        container_name: node02
+        ports: 
+            - 3001:3000
         environment: 
             - NODE_ENV=development
         volumes: 
@@ -20,9 +30,16 @@ services:
             context: ./dockerfiles/postgresql/
             dockerfile: Dockerfile
         image: tman/sandbox/postgres:latest
-        container_name: postgres
         links:
-            - node            
+            - node
+            - node1 
+    nginx:
+        build: 
+            context: ./dockerfiles/nginx/
+            dockerfile: Dockerfile
+        image: tman/sandbox/nginx:latest
+        ports: 
+            - 80:80
     cadvisor:
         image: google/cadvisor:latest
         container_name: cadvisor
