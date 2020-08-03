@@ -13,6 +13,6 @@ ENV HOME=/finalend
 
 RUN npm install -g gulp-cli @nestjs/cli
 
-EXPOSE 80 8080 3000
+EXPOSE 3000
 
 CMD [ "npm", "run", "start:dev" ]
