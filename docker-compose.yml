@@ -54,6 +54,7 @@ services:
             context: ./dockerfiles/postgresql/
             dockerfile: Dockerfile
         image: tman/sandbox/postgres:latest
+        container_name: postgres
         links:
             - node0
             - node1
@@ -64,6 +65,7 @@ services:
             context: ./dockerfiles/nginx/
             dockerfile: Dockerfile
         image: tman/sandbox/nginx:latest
+        container_name: nginx
         ports: 
             - 80:80
     cadvisor:
