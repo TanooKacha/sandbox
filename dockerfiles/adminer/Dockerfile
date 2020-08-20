@@ -12,5 +12,6 @@ RUN apk update \
     && apk add bash
 
 COPY login-password-less.php /var/www/html/plugins-enabled/
+EXPOSE 9000 
 
 USER adminer
