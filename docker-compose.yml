@@ -13,13 +13,14 @@ services:
             - NODE_ENV=development
         volumes: 
             - .:/finalend
-        resources:
-            # limits:
-            #     cpus: '0.50'
-            #     memory: 50M
-            reservations:
-                cpus: '0.90'
-                memory: 50M
+        deploy:
+            resources:
+                # limits:
+                #     cpus: '0.50'
+                #     memory: 50M
+                reservations:
+                    cpus: '0.90'
+                    memory: 50M
     postgres:
         build:
             context: ./dockerfiles/postgresql/
