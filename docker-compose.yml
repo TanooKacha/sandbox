@@ -18,8 +18,8 @@ services:
             #     cpus: '0.50'
             #     memory: 50M
             reservations:
-                cpus: '0.25'
-                memory: 20M
+                cpus: '0.90'
+                memory: 50M
     postgres:
         build:
             context: ./dockerfiles/postgresql/
