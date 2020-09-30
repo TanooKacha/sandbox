@@ -15,9 +15,6 @@ services:
             - .:/finalend
         deploy:
             resources:
-                # limits:
-                #     cpus: '0.50'
-                #     memory: 50M
                 reservations:
                     cpus: '0.90'
                     memory: 50M
