@@ -13,11 +13,11 @@ services:
             - NODE_ENV=development
         volumes: 
             - .:/finalend
-        deploy:
-            resources:
-                reservations:
-                    cpus: '0.90'
-                    memory: 50M
+        # deploy:
+        #     resources:
+        #         reservations:
+        #             cpus: '0.90'
+        #             memory: 50M
     postgres:
         build:
             context: ./dockerfiles/postgresql/
