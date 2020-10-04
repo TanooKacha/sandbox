@@ -10,7 +10,7 @@ export class ProductController {
 
     @Get('all')
     @Header('Content-Type','application/json')    
-    async getAll(@Response res) {
+    async getAll(@Response() res) {
         try {
             const products = await this.productService.getProducts();
             return JSON.stringify(products);
