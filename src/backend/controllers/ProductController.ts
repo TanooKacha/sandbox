@@ -16,7 +16,6 @@ export class ProductController {
             return JSON.stringify(products);
         } catch (e) {
             console.log(e);
-            // res.json(e)
             throw e
         }
         
