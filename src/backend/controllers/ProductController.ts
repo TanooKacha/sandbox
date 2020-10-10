@@ -11,14 +11,8 @@ export class ProductController {
     @Get('all')
     @Header('Content-Type','application/json')    
     async getAll() {
-        try {
-            const products = await this.productService.getProducts();
-            return JSON.stringify(products);
-        } catch (e) {
-            console.log(e);
-            throw e
-        }
-        
+        const products = await this.productService.getProducts();
+        return JSON.stringify(products);
     }
 
     @Post('add')  
