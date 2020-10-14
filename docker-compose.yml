@@ -39,6 +39,6 @@ services:
     networks: 
         backend:
         driver: bridge
-        name: Net_backend
+        #name: Net_backend
             #driver: 
             #network_mode: "bridge"
