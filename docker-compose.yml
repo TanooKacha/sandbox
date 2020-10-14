@@ -38,7 +38,7 @@ services:
             - /dev/disk/:/dev/disk:ro 
 networks: 
     backend:
-    driver: bridge
+    #driver: bridge
         #name: Net_backend
             #driver: 
             #network_mode: "bridge"
