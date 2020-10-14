@@ -36,9 +36,9 @@ services:
             - /sys:/sys:ro
             - /var/lib/docker/:/var/lib/docker:ro
             - /dev/disk/:/dev/disk:ro 
-    networks: 
-        backend:
-        driver: bridge
+networks: 
+    backend:
+    driver: bridge
         #name: Net_backend
             #driver: 
             #network_mode: "bridge"
