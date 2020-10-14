@@ -13,14 +13,18 @@ services:
             - NODE_ENV=development
         volumes: 
             - .:/finalend
+        networks: 
+            - backend
     postgres:
         build:
             context: ./dockerfiles/postgresql/
             dockerfile: Dockerfile
         image: tman/sandbox/postgres:latest
         container_name: postgres
-        links:
-            - node            
+        networks: 
+            - backend
+        # links:
+        #     - node            
     cadvisor:
         image: google/cadvisor:latest
         container_name: cadvisor
@@ -32,4 +36,9 @@ services:
             - /sys:/sys:ro
             - /var/lib/docker/:/var/lib/docker:ro
             - /dev/disk/:/dev/disk:ro 
-            
+    networks: 
+        backend:
+        driver: bridge
+        name: Net_backend
+            #driver: 
+            #network_mode: "bridge"
