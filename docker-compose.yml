@@ -6,7 +6,7 @@ services:
             context: ./dockerfiles/nodejs/
             dockerfile: Dockerfile
         image: tman/sandbox/nodejs:latest
-        container_name: node
+        container_name: node00
         ports: 
             - 3000:3000
         environment: 
@@ -30,6 +30,7 @@ services:
             context: ./dockerfiles/postgresql/
             dockerfile: Dockerfile
         image: tman/sandbox/postgres:latest
+        container_name: postgres
         links:
             - node
             - node1 
@@ -38,6 +39,7 @@ services:
             context: ./dockerfiles/nginx/
             dockerfile: Dockerfile
         image: tman/sandbox/nginx:latest
+        container_name: nginx
         ports: 
             - 80:80
     cadvisor:

@@ -14,7 +14,7 @@ docker exec -it node02 bash -c "make install"
 echo "--------------------------------------"
 echo " 🐳 Restarting Node container ..."
 echo "--------------------------------------"
-docker restart node01 node02
+docker restart node00 node01
 # Not the best approach but pending until I could research for the better solution
 
 echo "--------------------------------------"
