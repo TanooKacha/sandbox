@@ -1,50 +1,16 @@
 version: '3'
 
 services:
-    node0:
+    node:
         build:
             context: ./dockerfiles/nodejs/
             dockerfile: Dockerfile
         image: tman/sandbox/nodejs:latest
-        container_name: node00
+        deploy:
+            replicas: 3
+        #container_name: node00
         ports: 
             - 3000:3000
-        environment: 
-            - NODE_ENV=development
-        volumes: 
-            - .:/finalend  
-    node1:
-        build:
-            context: ./dockerfiles/nodejs/
-            dockerfile: Dockerfile
-        image: tman/sandbox/nodejs:latest
-        container_name: node01
-        ports: 
-            - 3001:3000
-        environment: 
-            - NODE_ENV=development
-        volumes: 
-            - .:/finalend
-    node2:
-        build:
-            context: ./dockerfiles/nodejs/
-            dockerfile: Dockerfile
-        image: tman/sandbox/nodejs:latest
-        container_name: node02
-        ports: 
-            - 3002:3000
-        environment: 
-            - NODE_ENV=development
-        volumes: 
-            - .:/finalend  
-    node3:
-        build:
-            context: ./dockerfiles/nodejs/
-            dockerfile: Dockerfile
-        image: tman/sandbox/nodejs:latest
-        container_name: node03
-        ports: 
-            - 3003:3000
         environment: 
             - NODE_ENV=development
         volumes: 
@@ -56,10 +22,7 @@ services:
         image: tman/sandbox/postgres:latest
         container_name: postgres
         links:
-            - node0
-            - node1
-            - node2
-            - node3
+            - node
     nginx:
         build: 
             context: ./dockerfiles/nginx/
