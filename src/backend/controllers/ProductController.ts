@@ -26,6 +26,8 @@ export class ProductController {
     async getAllCount(@Param('count') count: number) {
         try {
             const products = await this.productService.getRandomProducts(count)
+
+            return JSON.stringify(products)
         } catch (e) {
             console.log(e)
             throw e
