@@ -1,4 +1,4 @@
-import { Controller, Header, Get, Post, HttpCode, Body } from "@nestjs/common";
+import { Controller, Header, Get, Post, HttpCode, Body, Param } from "@nestjs/common";
 import { ProductService } from '../providers/product/service/ProductService';
 
 @Controller('product')
@@ -19,6 +19,17 @@ export class ProductController {
             throw e
         }
         
+    }
+
+    @Get('all/:count')
+    @Header('Content-Type', 'application/json')
+    async getAllCount(@Param('count') count: number) {
+        try {
+            const products = await this.productService.getRandomProducts(count)
+        } catch (e) {
+            console.log(e)
+            throw e
+        }
     }
 
     @Post('add')  
