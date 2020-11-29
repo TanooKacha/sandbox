@@ -18,8 +18,8 @@ export class SequelizeAdaptor implements OrmAdaptorInterface {
                 port: dbConfig.port,
                 dialect: 'postgres',
                 pool: {
-                    max: 5,
-                    min: 0,
+                    max: 500,
+                    min: 50,
                     acquire: 30000,
                     idle: 10000
                 }
