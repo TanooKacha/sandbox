@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-    node:
+    node0:
         build:
             context: ./dockerfiles/nodejs/
             dockerfile: Dockerfile
@@ -25,6 +25,30 @@ services:
             - NODE_ENV=development
         volumes: 
             - .:/finalend
+    node2:
+        build:
+            context: ./dockerfiles/nodejs/
+            dockerfile: Dockerfile
+        image: tman/sandbox/nodejs:latest
+        container_name: node02
+        ports: 
+            - 3002:3000
+        environment: 
+            - NODE_ENV=development
+        volumes: 
+            - .:/finalend  
+    node3:
+        build:
+            context: ./dockerfiles/nodejs/
+            dockerfile: Dockerfile
+        image: tman/sandbox/nodejs:latest
+        container_name: node03
+        ports: 
+            - 3003:3000
+        environment: 
+            - NODE_ENV=development
+        volumes: 
+            - .:/finalend        
     postgres:
         build:
             context: ./dockerfiles/postgresql/
@@ -32,8 +56,10 @@ services:
         image: tman/sandbox/postgres:latest
         container_name: postgres
         links:
-            - node
-            - node1 
+            - node0
+            - node1
+            - node2
+            - node3
     nginx:
         build: 
             context: ./dockerfiles/nginx/
@@ -52,5 +78,4 @@ services:
             - /var/run:/var/run:rw
             - /sys:/sys:ro
             - /var/lib/docker/:/var/lib/docker:ro
-            - /dev/disk/:/dev/disk:ro 
-            
+            - /dev/disk/:/dev/disk:ro
