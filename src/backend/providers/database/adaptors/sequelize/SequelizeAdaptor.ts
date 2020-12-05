@@ -19,7 +19,7 @@ export class SequelizeAdaptor implements OrmAdaptorInterface {
                 dialect: 'postgres',
                 pool: {
                     max: 500,
-                    min: 50,
+                    min: 0,
                     acquire: 30000,
                     idle: 10000
                 }
