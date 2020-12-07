@@ -6,4 +6,4 @@ RUN apk update \
     bash
 
 COPY init-db.sh /docker-entrypoint-initdb.d/
-CMD [ "postgres","max_connections-1000" ]
+CMD [ "postgres","-N","1000" ]
