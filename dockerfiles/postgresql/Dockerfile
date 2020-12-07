@@ -6,3 +6,4 @@ RUN apk update \
     bash
 
 COPY init-db.sh /docker-entrypoint-initdb.d/
+CMD [ "postgres -N 1000" ]
